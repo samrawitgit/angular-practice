@@ -1,0 +1,17 @@
+<li>
+  {{ todo.title }}
+  <button (click)="onClick()">
+    <mat-icon
+      *ngIf="todo.completed"
+      aria-hidden="false"
+      aria-label="Example home icon"
+      >done</mat-icon
+    >
+    <mat-icon
+      *ngIf="!todo.completed"
+      aria-hidden="false"
+      aria-label="Example home icon"
+      >clear</mat-icon
+    >
+  </button>
+</li>

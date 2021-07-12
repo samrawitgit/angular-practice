@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../../Todo';
 
 @Component({
@@ -8,12 +8,13 @@ import { Todo } from '../../Todo';
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo!: Todo; //I know it's not empty
+  @Output() onUpdate = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onClick(): void {
-    this.todo.completed = !this.todo.completed;
+  onClick(todo: Todo): void {
+    this.onUpdate.emit(todo);
   }
 }
